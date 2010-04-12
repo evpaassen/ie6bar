@@ -1,1 +1,1 @@
-php rmsrc
+php rmsrc.php
