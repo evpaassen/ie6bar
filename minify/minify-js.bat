@@ -1,0 +1,1 @@
+php minify-js.php
