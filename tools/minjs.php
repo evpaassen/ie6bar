@@ -1,28 +1,35 @@
 <?php
 define('BASE_DIR', dirname(__FILE__));
-include(BASE_DIR . '/jsminplus.php');
+require(BASE_DIR . '/lib/jsminplus.php');
+
+function println($string) { print $string . "\n"; }
+
+function minifyHTML($html) {
+	return preg_replace("/\\\\[\\s]*\\n[\\s]*/", '', $html);
+}
+
+function insertHTML($html, $haystack) {
+	return str_replace("/*INSERT HTML-FILE HERE*/", $html, $haystack);
+}
 
 
 
 // Generate ie6Bar javascript.
 $comment		= file_get_contents(BASE_DIR . '/../ie6bar/js/ie6bar.comment.js');
 $tinyComment	= file_get_contents(BASE_DIR . '/../ie6bar/js/ie6bar.comment-tiny.js');
-$base			= file_get_contents(BASE_DIR . '/../ie6bar/js/ie6bar.base.js');
-$minifiedBase	= JSMinPlus::minify($base);
+$html			= file_get_contents(BASE_DIR . '/../ie6bar/js/ie6bar.html.js');
+$base			= insertHTML($html, file_get_contents(BASE_DIR . '/../ie6bar/js/ie6bar.base.js'));
+$minifiedBase	= JSMinPlus::minify(insertHTML(minifyHTML($html), file_get_contents(BASE_DIR . '/../ie6bar/js/ie6bar.base.js')));
 $init			= file_get_contents(BASE_DIR . '/../ie6bar/js/ie6bar.init.js');
 
 $total			= $comment		. $base			. $init;
 $minifiedTotal	= $tinyComment	. $minifiedBase	. $init;
 
 file_put_contents(BASE_DIR . '/../ie6bar/js/ie6bar.js', $total);
-chown(BASE_DIR . '/../ie6bar/js/ie6bar.js', 'dev');
-chgrp(BASE_DIR . '/../ie6bar/js/ie6bar.js', 'dev');
-print 'Generated: ' . realpath(BASE_DIR . '/../ie6bar/js/ie6bar.js');
+println('Generated: ' . realpath(BASE_DIR . '/../ie6bar/js/ie6bar.js'));
 
 file_put_contents(BASE_DIR . '/../ie6bar/js/ie6bar.min.js', $minifiedTotal);
-chown(BASE_DIR . '/../ie6bar/js/ie6bar.min.js', 'dev');
-chgrp(BASE_DIR . '/../ie6bar/js/ie6bar.min.js', 'dev');
-print 'Generated: ' . realpath(BASE_DIR . '/../ie6bar/js/ie6bar.min.js');
+println('Generated: ' . realpath(BASE_DIR . '/../ie6bar/js/ie6bar.min.js'));
 
 
 
@@ -35,11 +42,7 @@ $cookieTotal			= $cookieComment	. $cookieBase;
 $cookieMinifiedTotal	= $cookieComment	. $cookieMinifiedBase;
 
 file_put_contents(BASE_DIR . '/../js/jquery.cookie.js', $cookieTotal);
-chown(BASE_DIR . '/../js/jquery.cookie.js', 'dev');
-chgrp(BASE_DIR . '/../js/jquery.cookie.js', 'dev');
-print 'Generated: ' . realpath(BASE_DIR . '/../js/jquery.cookie.js');
+println('Generated: ' . realpath(BASE_DIR . '/../js/jquery.cookie.js'));
 
 file_put_contents(BASE_DIR . '/../js/jquery.cookie.min.js', $cookieMinifiedTotal);
-chown(BASE_DIR . '/../js/jquery.cookie.min.js', 'dev');
-chgrp(BASE_DIR . '/../js/jquery.cookie.min.js', 'dev');
-print 'Generated: ' . realpath(BASE_DIR . '/../js/jquery.cookie.min.js');
+println('Generated: ' . realpath(BASE_DIR . '/../js/jquery.cookie.min.js'));
