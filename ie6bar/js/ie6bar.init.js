@@ -21,7 +21,7 @@ $(document).ready(
 		};
 		*/
 		
-		// Create a new ie6Bar-object and initialize the bar..
+		// Create a new ie6Bar-object and initialize the bar.
 		var i6b = new ie6Bar(options);
 		i6b.initialize();
 	}

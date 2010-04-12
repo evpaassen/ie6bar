@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>IE6Bar Documentation</title>
+	
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+	<a name="top"></a>
+	<h1>IE6Bar Documentation</h1>
+	<p>v1.0 (April 12, 2010)</p>
+	<hr />
+	<ol>
+		<li><a href="#license">License</a></li>
+		<li>
+			<a href="#whatis">What is IE6Bar?</a>
+			<ol>
+				<li><a href="#whatis-dependencies">Dependencies</a></li>
+				<li><a href="#whatis-screenshots">Screenshots</a></li>
+			</ol>
+		</li>
+		<li>
+			<a href="#installation">Installation</a>
+			<ol>
+				<li><a href="#installation-minified">Minified files</a></li>
+			</ol>
+		</li>
+		<li>
+			<a href="#configuration">Configuration &amp; Customization</a>
+			<ol>
+				<li><a href="#configuration-directives">List of configuration directives</a></li>
+			</ol>
+		</li>
+	</ol>
+	<hr />
+	
+	<h2>1. License</h2>
+	<a name="license"></a>
+	<p>
+		The IE6Bar project is licensed under the MIT License:
+<pre class="block">
+The MIT License
+
+Copyright (c) 2010 Erik van Paassen
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</pre>
+	</p>
+	
+	<div class="toplink"><a href="#top">top</a></div>
+	
+	<h2>2. What is IE6Bar?</h2>
+	<a name="whatis"></a>
+	<p>
+		IE6Bar is a small widget that is meant for owners of websites that do not offer support for the Internet Explorer 6 browser anymore.
+		As soon as you place the widget on your website, it will show up to users that still use this old browser to visit your sites.
+		The bar notifies these users that they should upgrade to obtain support.
+		You can try it yourself by opening the <em>index.html</em> from the zip archive with Internet Explorer 6.
+	</p>
+	<p>
+		If an user finds the bar annoying, he or she can simply click the close button.
+		After doing this, the bar will hide itself and place a cookie to remember it should not show up anymore to this user.
+	</p>
+	
+	<h3>2.1. Dependencies</h3>
+	<a name="whatis-dependencies"></a>
+	<p>
+		The IE6Bar widget depends on the widely-used javascript framework called <em>jQuery</em>.
+		This library provides the interface that was needed for those neat little animations and effects the warning bar has.
+		More information about jQuery can be found at: <a href="http://www.jquery.com" target="_blank">jQuery.com</a>.
+	</p>
+	<p>
+		Furthermore, it depends on the Cookie plugin for jQuery to store a cookie when the bar is hidden.
+		This plugin was originally written by Klaus Hartl in 2006.
+		More information about this plugin can be found at: <a href="http://plugins.jquery.com/project/cookie" target="_blank">it's project site</a>.
+	</p>
+	<p>
+		Note: the dependencies are already included in the zip archive in the <em>js</em> folder.
+		Though, you might want to download more recent versions when these are available.
+		The IE6Bar widget has only been tested with jQuery v1.4.2 (minified) and jQuery Cookie Plugin v1.0.
+	</p>
+	
+	<div class="toplink"><a href="#top">top</a></div>
+	
+	<h3>2.2. Screenshots</h3>
+	<a name="whatis-screenshots"></a>
+	<p>
+		<center>
+			This is the bar like it shows up in Internet Explorer 6:<br />
+			<img src="img/bar.png" alt="IE6Bar">
+		</center>
+	</p>
+	<p>
+		<center>
+			The upgrade bar expands after clicking on it:<br />
+			<img src="img/bar-expanded.png" alt="IE6Bar (expanded)">
+		</center>
+	</p>
+	
+	<div class="toplink"><a href="#top">top</a></div>
+	
+	<h2>3. Installation</h2>
+	<a name="installation"></a>
+	<p>
+		The installation procedure needed to get IE6Bar to work is extremely simple. First, you need to make sure that you copy the <em>ie6bar</em> directory from the zip archive to the root of your site.
+	</p>
+	<p>
+		Second, you need to take care of the dependencies, which are <em>jQuery</em> and the <em>jQuery Cookie Plugin</em>.
+		You can download these yourself, or just copy them from the <em>js</em> folder in the zip archive.
+		Put the files somewhere in your site root or one of it's subdirectory.
+		Just remember the path to these files, relative to the site root.
+		If your site already uses these libraries, you can (of course) skip this step.
+	</p>
+	<p>
+		Third, put the following snippet of HTML in the <em>&lt;head&gt;...&lt;/head&gt;</em> section of your site.
+		After this, the bar should work already.
+	</p>
+	<p>
+<pre class="block">
+&lt;!--[if lte IE 6]&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery-1.4.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.cookie.js&quot;&gt;&lt;/script&gt;
+
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;ie6bar/css/ie6bar.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;ie6bar/js/ie6bar.js&quot;&gt;&lt;/script&gt
+&lt;![endif]--&gt;
+</pre>
+	</p>
+	
+	<div class="toplink"><a href="#top">top</a></div>
+	
+	<h3>3.1. Minified files</h3>
+	<a name="installation-minified"></a>
+	<p>
+		The zip archive contains also minified versions of the javascript and css files.
+		These files have unnecessary whitespace and comments stripped out, what will reduced the file size.
+		This way, less bandwidth is needed and the file will be transferred faster.
+	</p>
+	<p>
+		The minified files are called <em>*.min.css</em> and <em>*.min.js</em>.
+		So if you want to make use of the minified files, just use the following HTML snippet.
+	</p>
+	<p>
+<pre class="block">
+&lt;!--[if lte IE 6]&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery-1.4.2.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.cookie.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;ie6bar/css/ie6bar.min.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;ie6bar/js/ie6bar.min.js&quot;&gt;&lt;/script&gt
+&lt;![endif]--&gt;
+</pre>
+	</p>
+	
+	<div class="toplink"><a href="#top">top</a></div>
+	
+	<h2>4. Configuration &amp; Customization</h2>
+	<a name="configuration"></a>
+	<p>
+		IE6Bar has some configuration options, which should provide you an easy interface to customize the behaviour of the bar a little bit.
+		Examples of customizations are <em>text messages</em>, <em>supported browsers</em> and <em>cookie expiration time</em>.
+	</p>
+	<p>
+		The configuration options can be set in the <em>ie6bar/js/iebar.js</em> (or <em>ie6bar/js/iebar.min.js</em>) file.
+		Here you see an example of how the configuration options can be used to translate the bar:
+	</p>
+	<p>
+<pre class="block">
+$(document).ready(
+   function() {
+      /*
+       * Example configuration: Dutch translation.
+       */
+      var options = {
+         txtTitle:
+           "We merken dat je met Internet Explorer 6 surft, maar deze browser wordt door ons niet meer ondersteund...",
+         
+         txtSubTitle:
+           "Daarom raden we je sterk aan te upgraden naar een modernere browser, zoals bijvoorbeeld Internet Explorer 8.",
+         
+         txtMoreInfo:
+           "Meer informatie",
+         
+         txtExplanation:
+              "Onderstaande vijf browsers worden w&eacute;l ondersteund. &ltstrong&gt;Klik op een logo om te upgraden.&lt;/strong&gt;",
+         
+         txtClose:
+           "Sluiten en niet meer weergeven",
+         
+         
+         urlIE:
+           "http://www.microsoft.com/netherlands/windows/internet-explorer/",
+	
+         urlSafari:
+           "http://www.apple.com/nl/safari/download/"
+      };
+      
+      // Create a new ie6Bar-object and initialize the bar.
+      var i6b = new ie6Bar(options);
+      i6b.initialize();
+   }
+);
+</pre>
+	</p>
+	<p>
+		You can find a list with all configuration directives you can use below.
+	</p>
+	
+	<div class="toplink"><a href="#top">top</a></div>
+	
+	<h3>4.1. List of configuration directives</h3>
+	<a name="configuration-directives"></a>
+	
+	<h4>Text messages</h4>
+	<p>
+		<dl>
+			<dt>txtTitle <em>(string)</em></dt>
+			<dd>
+				The large title text that appears in the bar.<br />
+				Default: <pre>"We see you use Internet Explorer 6, but we can no longer support this browser..."</pre>
+			</dd>
+			
+			<dt>txtSubTitle <em>(string)</em></dt>
+			<dd>
+				The smaller subtitle text that appears just under the title text in the bar.<br />
+				Default: <pre>"That's why we strongly recommend you to upgrade to a more modern browser, like Internet Explorer 8."</pre>
+			</dd>
+			
+			<dt>txtMoreInfo <em>(string)</em></dt>
+			<dd>
+				The small text that appears on the bottom of the non-expanded bar.<br />
+				Default: <pre>"More information"</pre>
+			</dd>
+			
+			<dt>txtExplanation <em>(string)</em></dt>
+			<dd>
+				The small text that appears in place of txtMoreInfo when the bar expands.<br />
+				Default: <pre>"The five browsers below are supported. &lt;strong&gt;Click on a logo to upgrade.&lt;/strong&gt;"</pre>
+			</dd>
+			
+			<dt>txtClose <em>(string)</em></dt>
+			<dd>
+				The tooltip text of the close button.<br />
+				Default: <pre>"Close and don't show again"</pre>
+			</dd>
+		</dl>
+	</p>
+	
+	<h4>Supported browsers</h4>
+	<p>
+		<dl>
+			<dt>txtIE <em>(string)</em></dt>
+			<dd>
+				The text that appears under the Internet Explorer logo on the button.<br />
+				Default: <pre>"Internet Explorer 7+"</pre>
+			</dd>
+			
+			<dt>urlIE <em>(string)</em></dt>
+			<dd>
+				The URL the Internet Explorer upgrade button should point to.<br/>
+				Default: <pre>"http://www.microsoft.com/windows/internet-explorer/"</pre>
+			</dd>
+			
+			<dt>txtFirefox <em>(string)</em></dt>
+			<dd>
+				The text that appears under the Firefox logo on the button.<br />
+				Default: <pre>"Mozilla Firefox 3.0+"</pre>
+			</dd>
+			
+			<dt>urlFirefox <em>(string)</em></dt>
+			<dd>
+				The URL the Firefox upgrade button should point to.<br/>
+				Default: <pre>"http://www.firefox.com/"</pre>
+			</dd>
+			
+			<dt>txtChrome <em>(string)</em></dt>
+			<dd>
+				The text that appears under the Google Chrome logo on the button.<br />
+				Default: <pre>"Google Chrome 3.0+"</pre>
+			</dd>
+			
+			<dt>urlChrome <em>(string)</em></dt>
+			<dd>
+				The URL the Chrome upgrade button should point to.<br/>
+				Default: <pre>"http://chrome.google.com/"</pre>
+			</dd>
+			
+			<dt>txtSafari <em>(string)</em></dt>
+			<dd>
+				The text that appears under the Safari logo on the button.<br />
+				Default: <pre>"Safari 3+"</pre>
+			</dd>
+			
+			<dt>urlSafari <em>(string)</em></dt>
+			<dd>
+				The URL the Safari upgrade button should point to.<br/>
+				Default: <pre>"http://www.apple.com/safari/download/"</pre>
+			</dd>
+			
+			<dt>txtOpera <em>(string)</em></dt>
+			<dd>
+				The text that appears under the Opera logo on the button.<br />
+				Default: <pre>"Opera 9.5+"</pre>
+			</dd>
+			
+			<dt>urlOpera <em>(string)</em></dt>
+			<dd>
+				The URL the Opera upgrade button should point to.<br/>
+				Default: <pre>"http://www.opera.com/download/"</pre>
+			</dd>
+		</dl>
+	</p>
+	
+	<h4>Cookie control</h4>
+	<p>
+		<dl>
+			<dt>cookieName <em>(string)</em></dt>
+			<dd>
+				Name of the cookie that is set when closing the bar.<br />
+				Default: <pre>"ie6bar"</pre>
+			</dd>
+			
+			<dt>cookieDays <em>(int)</em></dt>
+			<dd>
+				The number of days after which the cookie will expire. After the cookie has been expired the bar will be shown, until it is closed again.<br />
+				Default: <pre>28</pre>
+			</dd>
+		</dl>
+	</p>
+	
+	<div class="toplink"><a href="#top">top</a></div>
+</body>
+</html>
