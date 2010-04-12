@@ -51,11 +51,11 @@ ie6Bar.prototype.initialize = function() {
 		$("body").prepend(this.html);
 		$("div#ie6-warning").fadeIn(200);
 		
-		// Attach the 'close' action.
-		$("a#ie6-warning-close").click(function() {
+		// Attach the 'close' action and pass on the cookie settings to it.
+		$("a#ie6-warning-close").bind("click", {cookieName: this.cookieName, cookieDays: this.cookieDays}, function(event) {
 			
 			// Set a cookie wich lasts for 28 days.
-			$.cookie(this.cookieName, "hide", { expires: this.cookieDays });
+			$.cookie(event.data.cookieName, "hide", { expires: event.data.cookieDays });
 			
 			// First, hide the browser logo buttons (if necessary) by fading out.
 			$("span.ie6-warning-browserbutton").fadeOut(400, function() {
