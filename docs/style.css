@@ -57,6 +57,10 @@ pre.block {
 	padding:			7px;
 }
 
+ul li {
+	margin-bottom:		7px;
+}
+
 dt {
 	font-family:		"Courier New", Courier, monospace;
 	font-size:			15px;
