@@ -1,6 +1,6 @@
 /*
  * Internet Explorer 6 Upgrade Warning (XHTML)
- * Version:	1.0 (April 12, 2010)
+ * Version:	1.1 (April 14, 2010)
  * Author:	Erik van Paassen (http://www.evpwebdesign.nl)
  * 
  * Dependencies:
