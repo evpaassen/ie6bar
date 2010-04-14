@@ -19,7 +19,7 @@ $(document).ready(
 			urlIE:			"http://www.microsoft.com/netherlands/windows/internet-explorer/",
 			urlSafari:		"http://www.apple.com/nl/safari/download/",
 			
-			containerWidth:	900
+			contentWidth:	900
 		};
 		*/
 		
