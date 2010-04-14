@@ -38,6 +38,11 @@ function ie6Bar(options) {
 	this.cookieDays		= 28;											if (options.cookieDays)		this.cookieDays		= options.cookieDays;
 	
 	
+	// Layout settings.
+	this.overlay		= false;										if (options.overlay)		this.overlay		= options.overlay;
+	if (options.contentWidth)	this.contentWidth	= options.contentWidth;
+	
+	
 /*INSERT HTML-FILE HERE*/
 	
 	
@@ -49,7 +54,16 @@ ie6Bar.prototype.initialize = function() {
 	if ($.cookie(this.cookieName) != "hide") {
 		// Add the warning bar to the body and let it fade in.
 		$("body").prepend(this.html);
+		
+		if (this.overlay)
+			$("#ie6-warning").css({ position: 'absolute', 'z-index': 99999 });
+		
+		if (this.contentWidth)
+			$("#ie6-warning-container").css({ width: this.contentWidth });
+		
 		$("div#ie6-warning").fadeIn(200);
+		
+		
 		
 		// Attach the 'close' action and pass on the cookie settings to it.
 		$("a#ie6-warning-close").bind("click", {cookieName: this.cookieName, cookieDays: this.cookieDays}, function(event) {
@@ -69,6 +83,8 @@ ie6Bar.prototype.initialize = function() {
 				});
 			});
 		});
+		
+		
 		
 		// Attach the 'expand' action.
 		$("div#ie6-warning-container").click(function() {

@@ -2,7 +2,7 @@
 
 $(document).ready(
 	function() {
-		var options = {};
+		var options = { };
 		
 		/*
 		 * Example configuration: Dutch translation.
@@ -17,7 +17,9 @@ $(document).ready(
 			txtClose:		"Sluiten en niet meer weergeven",
 			
 			urlIE:			"http://www.microsoft.com/netherlands/windows/internet-explorer/",
-			urlSafari:		"http://www.apple.com/nl/safari/download/"
+			urlSafari:		"http://www.apple.com/nl/safari/download/",
+			
+			containerWidth:	900
 		};
 		*/
 		
