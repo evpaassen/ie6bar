@@ -39,7 +39,7 @@ function ie6Bar(options) {
 	
 	
 	// Layout settings.
-	this.overlay		= false;										if (options.overlay)		this.overlay		= options.overlay;
+	this.overlay		= true;											if (options.overlay)		this.overlay		= options.overlay;
 	if (options.contentWidth)	this.contentWidth	= options.contentWidth;
 	
 	
@@ -51,34 +51,34 @@ function ie6Bar(options) {
 
 ie6Bar.prototype.initialize = function() {
 	// Execute only if no 'hide' cookie is present.
-	if ($.cookie(this.cookieName) != "hide") {
+	if (jQuery.cookie(this.cookieName) != "hide") {
 		// Add the warning bar to the body and let it fade in.
-		$("body").prepend(this.html);
+		jQuery("body").prepend(this.html);
 		
 		if (this.overlay)
-			$("#ie6-warning").css({ position: 'absolute', 'z-index': 99999 });
+			jQuery("#ie6-warning").addClass('ie6-warning-overlay');
 		
 		if (this.contentWidth)
-			$("#ie6-warning-container").css({ width: this.contentWidth });
+			jQuery("#ie6-warning-container").css({ width: this.contentWidth });
 		
-		$("div#ie6-warning").fadeIn(200);
+		jQuery("div#ie6-warning").fadeIn(200);
 		
 		
 		
 		// Attach the 'close' action and pass on the cookie settings to it.
-		$("a#ie6-warning-close").bind("click", {cookieName: this.cookieName, cookieDays: this.cookieDays}, function(event) {
+		jQuery("a#ie6-warning-close").bind("click", {cookieName: this.cookieName, cookieDays: this.cookieDays}, function(event) {
 			
 			// Set a cookie wich lasts for 28 days.
-			$.cookie(event.data.cookieName, "hide", { expires: event.data.cookieDays });
+			jQuery.cookie(event.data.cookieName, "hide", { expires: event.data.cookieDays });
 			
 			// First, hide the browser logo buttons (if necessary) by fading out.
-			$("span.ie6-warning-browserbutton").fadeOut(400, function() {
+			jQuery("span.ie6-warning-browserbutton").fadeOut(400, function() {
 				
 				// Second, hide the details layer (if necessary) by sliding up.
-				$("div#ie6-warning-details").slideUp(500, function() {
+				jQuery("div#ie6-warning-details").slideUp(500, function() {
 					
 					// Finally, hide the bar entirely by sliding up.
-					$("div#ie6-warning").slideUp(500);
+					jQuery("div#ie6-warning").slideUp(500);
 					
 				});
 			});
@@ -87,20 +87,20 @@ ie6Bar.prototype.initialize = function() {
 		
 		
 		// Attach the 'expand' action.
-		$("div#ie6-warning-container").click(function() {
+		jQuery("div#ie6-warning-container").click(function() {
 			
 			// First, hide the 'more info' text by fading out.
-			$("div#ie6-warning-moreinfo").fadeOut(250, function() {
+			jQuery("div#ie6-warning-moreinfo").fadeOut(250, function() {
 				
 				// Second, show the explanation text by fading in.
-				$("div#ie6-warning-explanation").fadeIn(500, function() {
+				jQuery("div#ie6-warning-explanation").fadeIn(500, function() {
 					
 					// Third, expand the bar by sliding down the details layer.
-					$("div#ie6-warning").addClass("ie6-warning-expanded");
-					$("div#ie6-warning-details").slideDown(500, function() {
+					jQuery("div#ie6-warning").addClass("ie6-warning-expanded");
+					jQuery("div#ie6-warning-details").slideDown(500, function() {
 						
 						// Finally, show the browser buttons by fading in.
-						$("span.ie6-warning-browserbutton").fadeIn(400);
+						jQuery("span.ie6-warning-browserbutton").fadeIn(400);
 						
 					});
 				});

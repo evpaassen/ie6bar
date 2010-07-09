@@ -2,7 +2,7 @@
 	this.html = '\
 		<div id="ie6-warning">\
 			<div id="ie6-warning-container">\
-				<img id="ie6-warning-logo" src="ie6bar/img/ie6-logo.gif" alt="Internet Explorer 6 logo" />\
+				<div id="ie6-warning-logo"></div>\
 				<div id="ie6-warning-text">\
 					<span id="ie6-warning-title">' + this.txtTitle + '</span>\
 					'+ this.txtSubTitle +'\

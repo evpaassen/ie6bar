@@ -3,8 +3,8 @@
  * 
  * -------------------------------------------------------------------------------------------
  * 
- * Version:	1.1
- * Date:	April 14, 2010
+ * Version:	1.2
+ * Date:	July 9, 2010
  * 
  * Author:	Erik van Paassen
  * Website:	http://www.evpwebdesign.nl
@@ -66,6 +66,13 @@
 	position:				relative;
 }
 
+#ie6-warning.ie6-warning-overlay {
+	position:				absolute;
+	top:					0;
+	left:					0;
+	z-index:				99999;
+}
+
 #ie6-warning.ie6-warning-expanded {
 	height:					auto;
 }
@@ -118,6 +125,8 @@ a:hover#ie6-warning-close {
 	left:					0;
 	
 	border-width:			0;
+	
+	background-image:		url('../img/ie6-logo.gif');
 }
 
 #ie6-warning-text {

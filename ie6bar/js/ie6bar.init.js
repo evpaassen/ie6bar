@@ -1,6 +1,6 @@
 
 
-$(document).ready(
+jQuery(document).ready(
 	function() {
 		var options = { };
 		
