@@ -56,7 +56,7 @@ ie6Bar.prototype.initialize = function() {
 		jQuery("body").prepend(this.html);
 		
 		if (this.overlay)
-			jQuery("#ie6-warning").addClass('ie6-warning-overlay');
+			jQuery("#ie6-warning-wrapper").addClass('ie6-warning-overlay');
 		
 		if (this.contentWidth)
 			jQuery("#ie6-warning-container").css({ width: this.contentWidth });
