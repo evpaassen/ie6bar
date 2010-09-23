@@ -10,7 +10,7 @@
 <body>
 	<a name="top"></a>
 	<h1>IE6Bar Documentation</h1>
-	<p>v1.2 (July 9, 2010)</p>
+	<p>v1.3 (September 24, 2010)</p>
 	<hr />
 	<ol>
 		<li>
@@ -90,7 +90,7 @@ THE SOFTWARE.
 		IE6Bar is a small widget that is meant for owners of websites that do not offer support for the Internet Explorer 6 browser anymore.
 		As soon as you place the widget on your website, it will show up to users that still use this old browser to visit your sites.
 		The bar notifies these users that they should upgrade to obtain support.
-		You can try it yourself by opening the <em>index.html</em> from the zip archive with Internet Explorer 6.
+		You can try it yourself by opening the <em>example.html</em> from the zip archive with Internet Explorer 6.
 	</p>
 	<p>
 		If an user finds the bar annoying, he or she can simply click the close button.
@@ -110,7 +110,7 @@ THE SOFTWARE.
 		More information about this plugin can be found at: <a href="http://plugins.jquery.com/project/cookie" target="_blank">it's project site</a>.
 	</p>
 	<p>
-		Note: the dependencies are already included in the zip archive in the <em>js</em> folder.
+		Note: the dependencies are already included in the zip archive in the <em>src/js</em> folder.
 		Though, you might want to download more recent versions when these are available.
 		The IE6Bar widget has only been tested with jQuery v1.4.2 (minified) and jQuery Cookie Plugin v1.0.
 	</p>
@@ -142,13 +142,14 @@ THE SOFTWARE.
 	<p>
 		Second, you need to take care of the dependencies, which are <em>jQuery</em> and the <em>jQuery Cookie Plugin</em>.
 		You can download these yourself, or just copy them from the <em>js</em> folder in the zip archive.
-		Put the files somewhere in your site root or one of it's subdirectory.
-		Just remember the path to these files, relative to the site root.
+		Put the files somewhere in your site root or one of it's subdirectories.
+		Just remember the path to these files.
 		If your site already uses these libraries, you can (of course) skip this step.
 	</p>
 	<p>
 		Third, put the following snippet of HTML in the <em>&lt;head&gt;...&lt;/head&gt;</em> section of your site.
-		After this, the bar should work already.
+		After doing this, the bar should work already.
+		Be sure to adjust the paths of the files if you didn't place the <em>ie6bar</em> folder in your website root.
 	</p>
 	<p>
 <pre class="block">
@@ -164,7 +165,7 @@ THE SOFTWARE.
 	
 	<div class="toplink"><a href="#top">top</a></div>
 	
-	<h3>3.1. Minified files</h3>
+	<h3>3.1. Minified files (recommended)</h3>
 	<a name="installation-minified"></a>
 	<p>
 		The zip archive contains also minified versions of the javascript and css files.
@@ -173,7 +174,7 @@ THE SOFTWARE.
 	</p>
 	<p>
 		The minified files are called <em>*.min.css</em> and <em>*.min.js</em>.
-		So if you want to make use of the minified files, just use the following HTML snippet.
+		So if you want to make use of the minified files, which is recommended, just use the following HTML snippet.
 	</p>
 	<p>
 <pre class="block">

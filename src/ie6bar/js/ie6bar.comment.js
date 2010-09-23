@@ -3,8 +3,8 @@
  * 
  * ------------------------------------------------------------------------------------------- 
  * 
- * Version:	1.2
- * Date:	July 9, 2010
+ * Version:	1.3
+ * Date:	September 24, 2010
  * 
  * Dependencies:
  * - jQuery					(tested with v1.4.2)	(http;//www.jquery.com)
