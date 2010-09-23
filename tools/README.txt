@@ -6,15 +6,15 @@ In this directory, you'll find a build script, which can build the IE6Bar
 package from it's source. The source should be located in the folder '../src',
 relative to the folder of the build script.
 
-The script is written in PHP, so you'll need to have PHP installed to
-run it. You can then run the script from the command line using the following
-commands.
+The tool is written in PHP, so you'll need to have PHP installed to run it. It
+was developed and tested using PHP version 5.3.0. Once you have PHP installed,
+you can then run the script from the command line using the following commands.
+
 
 
 =======
- USAGE
+ USAGE 
 =======
-
 
 php ie6bar.php build
 
@@ -22,16 +22,17 @@ php ie6bar.php build
    relative to the folder of the build script.
 
 
-
 php ie6bar.php clean
 
    Removes the entire folder '../bin', relative to the folder of the build
    script.
 
+   
 
 ==========
  LIBARIES
 ==========
+
 The build script uses to libraries to minify css and javascript. Those libraries
 are called CssMin and JSMin+, respectively. Many thanks to the creators of these
 libraries!
