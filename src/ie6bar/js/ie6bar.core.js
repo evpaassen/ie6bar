@@ -1,6 +1,6 @@
 function ie6Bar(options) {
 	// Supported browsers.
-	this.textIE		= "Internet Explorer 7+";									if (options.textIE)		this.textIE		= options.textIE;
+	this.txtIE		= "Internet Explorer 7+";									if (options.txtIE)		this.txtIE		= options.txtIE;
 	this.urlIE		= "http://www.microsoft.com/windows/internet-explorer/";	if (options.urlIE)		this.urlIE		= options.urlIE;
 	
 	this.txtFirefox	= "Mozilla Firefox 3.0+";									if (options.txtFirefox)	this.txtFirefox	= options.txtFirefox;
@@ -42,9 +42,7 @@ function ie6Bar(options) {
 	this.overlay		= true;											if (options.overlay)		this.overlay		= options.overlay;
 	if (options.contentWidth)	this.contentWidth	= options.contentWidth;
 	
-	
-/*INSERT HTML-FILE HERE*/
-	
+	this.html = '{{{HTML}}}';
 	
 	return true;
 }
