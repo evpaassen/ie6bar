@@ -152,8 +152,12 @@ if ($argc == 2 && (strtolower($argv[1]) == 'clean' || strtolower($argv[1]) == 'c
 	// Copy the 'js' and ie6bar/img' directories.
 	recursiveCopy(SRC_DIR . '/js', OUT_DIR . '/js');
 	recursiveCopy(SRC_DIR . '/ie6bar/img', OUT_DIR . '/ie6bar/img');
+	
+	// Copy the 'example.html' file
+	copy(SRC_DIR . '/example.html', OUT_DIR . '/example.html') or fatalError('Cannot copy: ' . SRC_DIR . '/example.html =>' . OUT_DIR . '/example.html');
+	println('Copied:    ' . realpath(OUT_DIR . '/example.html'));
 
-	// Copy the main css fily.
+	// Copy the main css file.
 	copy(SRC_DIR . '/ie6bar/css/ie6bar.css', OUT_DIR . '/ie6bar/css/ie6bar.css') or fatalError('Cannot copy: ' . SRC_DIR . '/ie6bar/css/ie6bar.css =>' . OUT_DIR . '/ie6bar/css/ie6bar.css');
 	println('Copied:    ' . realpath(OUT_DIR . '/ie6bar/css/ie6bar.css'));
 
